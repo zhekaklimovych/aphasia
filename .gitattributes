@@ -1,0 +1,3 @@
+# Завжди LF у репозиторії і в робочій копії, незалежно від core.autocrlf на Windows.
+# Prettier теж пише LF, тож format:check не падатиме після свіжого клону.
+* text=auto eol=lf
