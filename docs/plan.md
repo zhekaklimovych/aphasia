@@ -34,7 +34,7 @@ MVP — це веб-застосунок (Nuxt + PWA), у якому корис�
 
 | Шар | Технологія | Роль у застосунку |
 | --- | --- | --- |
-| Фронтенд | Nuxt 3, Vue 3 (`<script setup>`) | Сторінки, компоненти діалогу, PWA |
+| Фронтенд | Nuxt 4, Vue 3 (`<script setup>`) | Сторінки, компоненти діалогу, PWA |
 | Клієнтський стан | Pinia | Авторизація, поточна сесія діалогу |
 | Серверний стан | TanStack Query (Vue) | Профіль, словник, історія, мутації |
 | Таблиці | TanStack Table | Словник слів і історія сесій |
@@ -49,12 +49,16 @@ MVP — це веб-застосунок (Nuxt + PWA), у якому корис�
 ```
 aphasia-helper/
 ├── apps/
-│   ├── web/                 # Nuxt 3
-│   │   ├── pages/           # index, dialog/[id], history, profile, words, login, register
-│   │   ├── components/      # dialog/, profile/, common/
-│   │   ├── composables/     # useDialog, useAuthApi ...
-│   │   ├── stores/          # auth.ts, dialog.ts
-│   │   └── middleware/      # auth.ts
+│   ├── web/                 # Nuxt 4 (@aphasia/web)
+│   │   ├── app/             # srcDir Nuxt 4
+│   │   │   ├── pages/       # index, dialog/[id], history, profile, words, login, register
+│   │   │   ├── layouts/     # default, auth
+│   │   │   ├── components/  # dialog/, profile/, common/
+│   │   │   ├── composables/ # useDialog, useAuthApi ...
+│   │   │   ├── stores/      # auth.ts, dialog.ts
+│   │   │   └── middleware/  # auth.ts
+│   │   ├── public/
+│   │   └── nuxt.config.ts
 │   └── api/                 # Nest.js
 │       ├── src/auth, profile, words, sessions, ai, prisma
 │       └── prisma/schema.prisma
@@ -171,7 +175,7 @@ model DialogMessage {
 **Вивчаєте:** Git, pnpm, структура монорепозиторію.
 
 - [ ] Створити репозиторій на GitHub, гілка `main` захищена, робота через PR.
-- [ ] Ініціалізувати pnpm workspaces, створити `apps/web` через `npx nuxi init`.
+- [ ] Ініціалізувати pnpm workspaces, створити `apps/web` через `pnpm create nuxt@latest` (шаблон `minimal`, Nuxt 4). Шляхи фронтенду нижче (`pages/`, `stores/`, `mocks/` …) рахуються від `apps/web/app/`.
 - [ ] Налаштувати TypeScript strict, ESLint, Prettier.
 - [ ] README з командами запуску.
 

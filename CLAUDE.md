@@ -22,7 +22,7 @@
 | Шар | Технологія |
 | --- | --- |
 | Мова | TypeScript (strict) |
-| Фронтенд | Nuxt 3, Vue 3 (Composition API, `<script setup>`) |
+| Фронтенд | Nuxt 4, Vue 3 (Composition API, `<script setup>`) |
 | Клієнтський стан | Pinia (auth, UI-стан активного діалогу) |
 | Серверний стан | TanStack Query (Vue) |
 | Таблиці | TanStack Table |
@@ -37,12 +37,17 @@
 ## Структура
 
 ```
-apps/web/              # Nuxt 3
-  pages/               # index, dialog/[id], history, profile, words, login, register
-  components/dialog/   # InputForm, QuestionCard, AnswerButtons, DialogHistory, ResultCard, ProgressBar
-  composables/         # useDialog та інші
-  stores/              # auth.ts, dialog.ts
-  middleware/          # auth.ts
+apps/web/              # Nuxt 4, пакет @aphasia/web
+  app/                 # srcDir Nuxt 4: увесь код застосунку тут
+    app.vue
+    pages/             # index, dialog/[id], history, profile, words, login, register
+    layouts/           # default, auth
+    components/dialog/ # InputForm, QuestionCard, AnswerButtons, DialogHistory, ResultCard, ProgressBar
+    composables/       # useDialog та інші
+    stores/            # auth.ts, dialog.ts
+    middleware/        # auth.ts
+  public/              # статичні файли
+  nuxt.config.ts
 apps/api/              # Nest.js
   src/                 # auth, profile, words, sessions, ai, prisma
   prisma/schema.prisma
