@@ -32,19 +32,19 @@ MVP — це веб-застосунок (Nuxt + PWA), у якому корис�
 
 Усе живе в одному монорепозиторії на pnpm workspaces: фронт, бекенд і спільні типи. Браузер ходить тільки в Nest API, а ключ AI-сервісу зберігається лише на бекенді.
 
-| Шар | Технологія | Роль у застосунку |
-| --- | --- | --- |
-| Фронтенд | Nuxt 4, Vue 3 (`<script setup>`) | Сторінки, компоненти діалогу, PWA |
-| Клієнтський стан | Pinia | Авторизація, поточна сесія діалогу |
-| Серверний стан | TanStack Query (Vue) | Профіль, словник, історія, мутації |
-| Таблиці | TanStack Table | Словник слів і історія сесій |
-| Валідація | Zod | Форми та відповідь AI, спільні схеми |
-| Бекенд | Nest.js | Модулі auth, profile, words, sessions, ai |
-| ORM і БД | Prisma + PostgreSQL 16 | Схема, міграції, запити |
-| AI | Groq API (через Nest) | Генерація питань та інтерпретації |
-| Тести | Vitest, Supertest, Playwright | Unit, API, E2E |
-| Інфраструктура | Docker Compose, GitHub Actions | Локальна БД, CI |
-| Інструменти | Git, Claude Code | Гілки і PR, допомога з кодом |
+| Шар              | Технологія                       | Роль у застосунку                         |
+| ---------------- | -------------------------------- | ----------------------------------------- |
+| Фронтенд         | Nuxt 4, Vue 3 (`<script setup>`) | Сторінки, компоненти діалогу, PWA         |
+| Клієнтський стан | Pinia                            | Авторизація, поточна сесія діалогу        |
+| Серверний стан   | TanStack Query (Vue)             | Профіль, словник, історія, мутації        |
+| Таблиці          | TanStack Table                   | Словник слів і історія сесій              |
+| Валідація        | Zod                              | Форми та відповідь AI, спільні схеми      |
+| Бекенд           | Nest.js                          | Модулі auth, profile, words, sessions, ai |
+| ORM і БД         | Prisma + PostgreSQL 16           | Схема, міграції, запити                   |
+| AI               | Groq API (через Nest)            | Генерація питань та інтерпретації         |
+| Тести            | Vitest, Supertest, Playwright    | Unit, API, E2E                            |
+| Інфраструктура   | Docker Compose, GitHub Actions   | Локальна БД, CI                           |
+| Інструменти      | Git, Claude Code                 | Гілки і PR, допомога з кодом              |
 
 ```
 aphasia-helper/
@@ -150,21 +150,21 @@ model DialogMessage {
 
 **API** (префікс `/api`, усі маршрути, крім auth, потребують JWT):
 
-| Метод | Шлях | Що робить |
-| --- | --- | --- |
-| POST | `/auth/register` | Реєстрація |
-| POST | `/auth/login` | Логін, токен у httpOnly cookie |
-| POST | `/auth/logout` | Очищення cookie |
-| GET | `/auth/me` | Поточний користувач |
-| GET / PUT | `/profile` | Отримати або зберегти профіль |
-| GET / POST | `/words` | Список і додавання пари слів |
-| PATCH / DELETE | `/words/:id` | Редагування і видалення |
-| POST | `/sessions` | Нова сесія з `initialInput`, повертає перше питання |
-| POST | `/sessions/:id/answer` | Відповідь YES/NO/SKIP, повертає наступне питання або результат |
-| POST | `/sessions/:id/feedback` | "Правильно / неправильно" + коментар |
-| GET | `/sessions` | Історія з пагінацією |
-| GET | `/sessions/:id` | Сесія з усіма повідомленнями |
-| GET | `/sessions/stats` | Кількість сесій і % успішних (SQL-агрегація) |
+| Метод          | Шлях                     | Що робить                                                      |
+| -------------- | ------------------------ | -------------------------------------------------------------- |
+| POST           | `/auth/register`         | Реєстрація                                                     |
+| POST           | `/auth/login`            | Логін, токен у httpOnly cookie                                 |
+| POST           | `/auth/logout`           | Очищення cookie                                                |
+| GET            | `/auth/me`               | Поточний користувач                                            |
+| GET / PUT      | `/profile`               | Отримати або зберегти профіль                                  |
+| GET / POST     | `/words`                 | Список і додавання пари слів                                   |
+| PATCH / DELETE | `/words/:id`             | Редагування і видалення                                        |
+| POST           | `/sessions`              | Нова сесія з `initialInput`, повертає перше питання            |
+| POST           | `/sessions/:id/answer`   | Відповідь YES/NO/SKIP, повертає наступне питання або результат |
+| POST           | `/sessions/:id/feedback` | "Правильно / неправильно" + коментар                           |
+| GET            | `/sessions`              | Історія з пагінацією                                           |
+| GET            | `/sessions/:id`          | Сесія з усіма повідомленнями                                   |
+| GET            | `/sessions/stats`        | Кількість сесій і % успішних (SQL-агрегація)                   |
 
 ## 4. Етапи 0–2: фронтенд без бекенду
 
@@ -187,14 +187,14 @@ model DialogMessage {
 
 Компоненти в `components/dialog/`:
 
-| Компонент | Що робить | Тема Vue |
-| --- | --- | --- |
-| `InputForm.vue` | Поле вводу фрази, кнопка "Почати" | `v-model`, `emit` |
-| `QuestionCard.vue` | Показує поточне питання | props |
-| `AnswerButtons.vue` | Кнопки Так / Ні / Пропустити | `emit` з payload |
-| `DialogHistory.vue` | Список питань і відповідей | `v-for`, `:key` |
-| `ResultCard.vue` | Інтерпретація, впевненість, кнопки підтвердження | `computed`, слоти |
-| `ProgressBar.vue` | Номер питання з N | `computed` |
+| Компонент           | Що робить                                        | Тема Vue          |
+| ------------------- | ------------------------------------------------ | ----------------- |
+| `InputForm.vue`     | Поле вводу фрази, кнопка "Почати"                | `v-model`, `emit` |
+| `QuestionCard.vue`  | Показує поточне питання                          | props             |
+| `AnswerButtons.vue` | Кнопки Так / Ні / Пропустити                     | `emit` з payload  |
+| `DialogHistory.vue` | Список питань і відповідей                       | `v-for`, `:key`   |
+| `ResultCard.vue`    | Інтерпретація, впевненість, кнопки підтвердження | `computed`, слоти |
+| `ProgressBar.vue`   | Номер питання з N                                | `computed`        |
 
 - [ ] Файл `mocks/questions.ts` з 6–8 питаннями і готовим результатом.
 - [ ] Composable `useDialog()` зі станами `idle → asking → result → done`, функціями `start(text)`, `answer(value)`, `reset()`.
@@ -295,15 +295,15 @@ model DialogMessage {
 
 Кожна технологія стеку отримує щонайменше один етап практики, а Git і Claude Code використовуються щотижня.
 
-| Тиждень | Етап | Основні технології |
-| --- | --- | --- |
-| 1 | 0 + початок 1 | Git, pnpm, TypeScript, Vue |
-| 2 | 1 | Vue, composables, Vitest |
-| 3 | 2 | Nuxt, Pinia, Zod, TanStack Table |
-| 4 | 3 | Nest.js, Prisma, PostgreSQL, Docker |
-| 5 | 4 | JWT, guards, TanStack Query, Supertest |
-| 6 | 5 | Інтеграція AI, Zod на бекенді |
-| 7 | 6 | Vitest, Playwright, Docker, GitHub Actions |
+| Тиждень | Етап          | Основні технології                         |
+| ------- | ------------- | ------------------------------------------ |
+| 1       | 0 + початок 1 | Git, pnpm, TypeScript, Vue                 |
+| 2       | 1             | Vue, composables, Vitest                   |
+| 3       | 2             | Nuxt, Pinia, Zod, TanStack Table           |
+| 4       | 3             | Nest.js, Prisma, PostgreSQL, Docker        |
+| 5       | 4             | JWT, guards, TanStack Query, Supertest     |
+| 6       | 5             | Інтеграція AI, Zod на бекенді              |
+| 7       | 6             | Vitest, Playwright, Docker, GitHub Actions |
 
 **Ритм тижня:** 1,5–2 години в будні (тема з документації + одна задача з чеклиста), субота — довести етап до "Готово, коли", неділя — повторення і нотатки про те, що було незрозуміло.
 
