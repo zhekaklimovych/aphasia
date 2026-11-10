@@ -174,10 +174,10 @@ model DialogMessage {
 
 **Вивчаєте:** Git, pnpm, структура монорепозиторію.
 
-- [ ] Створити репозиторій на GitHub, гілка `main` захищена, робота через PR.
-- [ ] Ініціалізувати pnpm workspaces, створити `apps/web` через `pnpm create nuxt@latest` (шаблон `minimal`, Nuxt 4). Шляхи фронтенду нижче (`pages/`, `stores/`, `mocks/` …) рахуються від `apps/web/app/`.
-- [ ] Налаштувати TypeScript strict, ESLint, Prettier.
-- [ ] README з командами запуску.
+- [x] Створити репозиторій на GitHub, гілка `main` захищена, робота через PR.
+- [x] Ініціалізувати pnpm workspaces, створити `apps/web` через `pnpm create nuxt@latest` (шаблон `minimal`, Nuxt 4). Шляхи фронтенду нижче (`pages/`, `stores/`, `mocks/` …) рахуються від `apps/web/app/`.
+- [x] Налаштувати TypeScript strict, ESLint, Prettier.
+- [x] README з командами запуску.
 
 **Готово, коли:** `pnpm dev` відкриває стартову сторінку Nuxt, перший PR змерджено.
 
