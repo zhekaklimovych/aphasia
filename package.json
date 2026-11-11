@@ -5,6 +5,7 @@
     "dev": "pnpm --filter @aphasia/web dev",
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

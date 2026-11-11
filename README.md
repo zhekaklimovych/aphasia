@@ -47,6 +47,7 @@ pnpm dev
 | `pnpm dev`          | Запускає фронтенд (Nuxt) у режимі розробки |
 | `pnpm lint`         | ESLint в усіх пакетах                      |
 | `pnpm typecheck`    | Перевірка типів (vue-tsc) в усіх пакетах   |
+| `pnpm test`         | Тести Vitest в усіх пакетах                |
 | `pnpm format`       | Форматує код через Prettier                |
 | `pnpm format:check` | Перевіряє форматування без змін (для CI)   |
 
