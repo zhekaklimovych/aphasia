@@ -7,6 +7,8 @@ export default defineNuxtConfig({
       // lang потрібен екранним дикторам, щоб читати текст українською вимовою
       htmlAttrs: { lang: 'uk' },
       title: 'Aphasia Helper',
+      // Назву сторінки задає кожна сторінка через useHead({ title })
+      titleTemplate: '%s · Aphasia Helper',
     },
   },
   compatibilityDate: '2025-07-15',
