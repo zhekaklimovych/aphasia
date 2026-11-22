@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import type { DialogResult, Question } from '~/types/dialog'
+import type { DialogResult, Question } from '@aphasia/shared'
 
 // Власні короткі дані, щоб тести не залежали від моків застосунку.
 const questions: Question[] = [

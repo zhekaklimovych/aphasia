@@ -1,4 +1,5 @@
-import type { Answer, DialogStatus, HistoryEntry } from '~/types/dialog'
+import type { Answer, HistoryEntry } from '@aphasia/shared'
+import type { DialogStatus } from '~/types/dialog'
 import { mockQuestions, mockResult } from '~/mocks/questions'
 
 export function useDialog(questions = mockQuestions, finalResult = mockResult) {

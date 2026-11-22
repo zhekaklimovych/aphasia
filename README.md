@@ -60,7 +60,7 @@ apps/
   web/            # Nuxt 4 (@aphasia/web), код у apps/web/app/
   api/            # Nest.js (з'явиться на етапі 3)
 packages/
-  shared/         # Спільні Zod-схеми і типи (з'явиться на етапі 2)
+  shared/         # Спільні Zod-схеми і типи (@aphasia/shared)
 docs/plan.md      # План розробки з етапами
 ```
 

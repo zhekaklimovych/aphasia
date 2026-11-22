@@ -1,4 +1,4 @@
-import type { Answer } from '~/types/dialog'
+import type { Answer } from '@aphasia/shared'
 
 /** Підписи відповідей для кнопок та історії. */
 export const answerLabels: Record<Answer, string> = {

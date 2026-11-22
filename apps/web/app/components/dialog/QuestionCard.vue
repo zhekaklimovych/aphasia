@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Question } from '~/types/dialog'
+import type { Question } from '@aphasia/shared'
 
 defineProps<{
   question: Question

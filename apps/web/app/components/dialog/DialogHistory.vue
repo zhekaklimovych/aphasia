@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { HistoryEntry } from '~/types/dialog'
+import type { HistoryEntry } from '@aphasia/shared'
 
 defineProps<{
   // readonly, бо useDialog віддає історію лише для читання

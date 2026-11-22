@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DialogResult } from '~/types/dialog'
+import type { DialogResult } from '@aphasia/shared'
 
 const props = defineProps<{
   result: DialogResult

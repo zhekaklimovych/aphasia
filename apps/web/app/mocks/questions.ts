@@ -1,4 +1,4 @@
-import type { DialogResult, Question } from '~/types/dialog'
+import type { DialogResult, Question } from '@aphasia/shared'
 
 // Сценарій для вводу "чайник синій". Дані вигадані.
 // Питання звужуються від загального до конкретного.

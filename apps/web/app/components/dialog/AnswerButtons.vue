@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Answer } from '~/types/dialog'
+import type { Answer } from '@aphasia/shared'
 
 const emit = defineEmits<{
   answer: [value: Answer]
