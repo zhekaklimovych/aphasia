@@ -1,4 +1,12 @@
-import type { Profile, WordInput, WordMapping, WordUpdate } from '@aphasia/shared'
+import type {
+  Profile,
+  SessionDetail,
+  SessionSummary,
+  WordInput,
+  WordMapping,
+  WordUpdate,
+} from '@aphasia/shared'
+import { mockSessions } from './sessions'
 
 /**
  * МОК API для профілю і словника. Дані живуть у localStorage браузера,
@@ -100,6 +108,17 @@ export const mockApi = {
       words.map((word) => (word.id === id ? updated : word)),
     )
     return updated
+  },
+
+  /** Від найновіших до найстаріших, без повідомлень */
+  async listSessions(): Promise<SessionSummary[]> {
+    return [...mockSessions]
+      .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+      .map(({ messages: _messages, ...summary }) => summary)
+  },
+
+  async getSession(id: string): Promise<SessionDetail | null> {
+    return mockSessions.find((session) => session.id === id) ?? null
   },
 
   async deleteWord(id: string): Promise<void> {

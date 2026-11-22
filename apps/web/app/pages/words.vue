@@ -103,21 +103,7 @@ async function remove(word: WordMapping) {
 
     <!-- idle: на сервері дані ще не запитувались (мок працює лише в браузері) -->
     <p v-if="status === 'idle' || status === 'pending'" class="page__text">Завантаження…</p>
-    <p v-else-if="!words.length" class="page__text">Словник поки порожній.</p>
-    <ul v-else class="words__list" aria-label="Слова у словнику">
-      <li v-for="word in words" :key="word.id" class="words__item">
-        <div>
-          <strong>{{ word.usedWord }}</strong> → {{ word.correctWord }}
-          <span v-if="word.context" class="words__context">{{ word.context }}</span>
-        </div>
-        <div class="words__item-actions">
-          <button type="button" class="words__link" @click="startEdit(word)">Редагувати</button>
-          <button type="button" class="words__link words__link--danger" @click="remove(word)">
-            Видалити
-          </button>
-        </div>
-      </li>
-    </ul>
+    <WordsTable v-else :words="words" @edit="startEdit" @remove="remove" />
   </div>
 </template>
 
@@ -130,51 +116,5 @@ async function remove(word: WordMapping) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: var(--space-2);
-}
-
-.words__list {
-  display: grid;
-  gap: var(--space-1);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.words__item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-1) var(--space-2);
-  padding: var(--space-2);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-}
-
-.words__context {
-  display: block;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-}
-
-.words__item-actions {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.words__link {
-  min-height: 2.75rem;
-  padding: 0 var(--space-1);
-  border: none;
-  background: none;
-  color: var(--color-link);
-  font-weight: 600;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.words__link--danger {
-  color: var(--color-error-text);
 }
 </style>

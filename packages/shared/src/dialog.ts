@@ -28,6 +28,42 @@ export const HistoryEntrySchema = z.object({
 })
 export type HistoryEntry = z.infer<typeof HistoryEntrySchema>
 
+/** Елемент списку GET /sessions */
+export const SessionSummarySchema = z.object({
+  id: z.string(),
+  initialInput: z.string(),
+  status: SessionStatusSchema,
+  interpretation: z.string().nullable(),
+  confidence: z.number().min(0).max(1).nullable(),
+  wasCorrect: z.boolean().nullable(),
+  createdAt: z.iso.datetime(),
+})
+export type SessionSummary = z.infer<typeof SessionSummarySchema>
+
+export const DialogMessageSchema = z.object({
+  id: z.string(),
+  role: MessageRoleSchema,
+  content: z.string(),
+  answer: AnswerSchema.nullable(),
+  sequence: z.number().int().min(0),
+})
+export type DialogMessage = z.infer<typeof DialogMessageSchema>
+
+/** Відповідь GET /sessions/:id */
+export const SessionDetailSchema = SessionSummarySchema.extend({
+  messages: z.array(DialogMessageSchema),
+})
+export type SessionDetail = z.infer<typeof SessionDetailSchema>
+
+/** Відповідь GET /sessions/stats */
+export const SessionStatsSchema = z.object({
+  total: z.number().int().min(0),
+  completed: z.number().int().min(0),
+  /** Частка правильно зрозумілих серед завершених, від 0 до 1 */
+  successRate: z.number().min(0).max(1),
+})
+export type SessionStats = z.infer<typeof SessionStatsSchema>
+
 /** Тіло POST /sessions */
 export const StartSessionSchema = z.object({
   initialInput: z.string().trim().min(1, 'Введіть слово або фразу').max(500),
