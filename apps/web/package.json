@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@aphasia/shared": "workspace:*",
+    "@pinia/nuxt": "^1.0.3",
     "nuxt": "^4.6.4",
+    "pinia": "^4.1.0",
     "vue": "^3.5.45",
     "vue-router": "^5.4.0"
   },

@@ -41,8 +41,8 @@ apps/web/              # Nuxt 4, пакет @aphasia/web
     pages/             # index, dialog/[id], history, profile, words, login, register
     layouts/           # default, auth
     components/dialog/ # InputForm, QuestionCard, AnswerButtons, DialogHistory, ResultCard, ProgressBar
-    composables/       # useDialog та інші
-    stores/            # auth.ts, dialog.ts
+    composables/       # useHotkeys та інші
+    stores/            # dialog.ts (стан активного діалогу), auth.ts
     middleware/        # auth.ts
   public/              # статичні файли
   nuxt.config.ts

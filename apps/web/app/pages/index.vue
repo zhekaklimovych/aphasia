@@ -1,18 +1,9 @@
 <script setup lang="ts">
 useHead({ title: 'Новий діалог' })
 
-const {
-  status,
-  currentQuestion,
-  progress,
-  history,
-  result,
-  wasCorrect,
-  start,
-  answer,
-  confirm,
-  reset,
-} = useDialog()
+const dialog = useDialogStore()
+const { status, currentQuestion, progress, history, result, wasCorrect } = storeToRefs(dialog)
+const { start, answer, confirm, reset } = dialog
 </script>
 
 <template>
