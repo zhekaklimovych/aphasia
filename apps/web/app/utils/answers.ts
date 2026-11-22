@@ -6,3 +6,10 @@ export const answerLabels: Record<Answer, string> = {
   NO: 'Ні',
   SKIP: 'Пропустити',
 }
+
+/** Гарячі клавіші відповідей: code — фізична клавіша, key — підпис на кнопці. */
+export const answerHotkeys: Record<Answer, { code: string; key: string }> = {
+  YES: { code: 'KeyY', key: 'Y' },
+  NO: { code: 'KeyN', key: 'N' },
+  SKIP: { code: 'KeyS', key: 'S' },
+}

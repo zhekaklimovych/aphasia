@@ -20,3 +20,37 @@ const labelId = useId()
     />
   </div>
 </template>
+
+<style scoped>
+.progress-bar {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.progress-bar__label {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.progress-bar__track {
+  appearance: none;
+  width: 100%;
+  height: 1rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.progress-bar__track::-webkit-progress-bar {
+  background: var(--color-border);
+}
+
+.progress-bar__track::-webkit-progress-value {
+  background: var(--color-primary);
+}
+
+.progress-bar__track::-moz-progress-bar {
+  background: var(--color-primary);
+}
+</style>

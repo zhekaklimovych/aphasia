@@ -28,15 +28,39 @@ const {
 
     <DialogResultCard v-else-if="status === 'result' && result" :result="result">
       <template #actions>
-        <button type="button" @click="confirm(true)">Так, я це мав на увазі</button>
-        <button type="button" @click="confirm(false)">Ні</button>
+        <DialogConfirmButtons @confirm="confirm" />
       </template>
     </DialogResultCard>
 
-    <section v-else-if="status === 'done'" class="dialog-page__done">
+    <section v-else-if="status === 'done'" class="dialog-page__done" aria-live="polite">
       <p v-if="wasCorrect">Чудово, ми зрозуміли вас правильно!</p>
       <p v-else>Шкода, що не вийшло. Спробуйте сформулювати інакше.</p>
-      <button type="button" @click="reset">Новий діалог</button>
+      <button type="button" class="btn" @click="reset">Новий діалог</button>
     </section>
   </main>
 </template>
+
+<style scoped>
+.dialog-page {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-2) var(--space-4);
+}
+
+.dialog-page__title {
+  font-size: 1.3rem;
+  color: var(--color-text-muted);
+}
+
+.dialog-page__done {
+  display: grid;
+  gap: var(--space-2);
+  font-size: 1.4rem;
+}
+
+.dialog-page__done p {
+  margin: 0;
+}
+</style>

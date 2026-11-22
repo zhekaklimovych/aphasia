@@ -23,3 +23,24 @@ const confidencePercent = computed(() => Math.round(props.result.confidence * 10
     </div>
   </section>
 </template>
+
+<style scoped>
+.result-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-3);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.result-card__label,
+.result-card__confidence {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.result-card__interpretation {
+  font-size: 1.6rem;
+}
+</style>

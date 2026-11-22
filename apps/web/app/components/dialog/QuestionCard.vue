@@ -12,3 +12,16 @@ defineProps<{
     <h2 class="question-card__text">{{ question.text }}</h2>
   </section>
 </template>
+
+<style scoped>
+.question-card {
+  padding: var(--space-4) var(--space-3);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.question-card__text {
+  font-size: 1.6rem;
+}
+</style>
