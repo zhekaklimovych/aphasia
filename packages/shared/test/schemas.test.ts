@@ -48,7 +48,35 @@ describe('profile', () => {
   })
 })
 
+describe('profile: порожні поля з форми', () => {
+  it('порожні необовʼязкові поля стають undefined', () => {
+    const profile = ProfileInputSchema.parse({
+      firstName: 'Тест',
+      birthDate: '',
+      severity: '',
+      occupation: '   ',
+    })
+
+    expect(profile.birthDate).toBeUndefined()
+    expect(profile.severity).toBeUndefined()
+    expect(profile.occupation).toBeUndefined()
+  })
+
+  it('невірна дата дає зрозуміле повідомлення', () => {
+    const result = ProfileInputSchema.safeParse({ firstName: 'Тест', birthDate: '1990-13-45' })
+
+    expect(result.success).toBe(false)
+    expect(result.error?.issues[0]?.message).toBe('Дата у форматі РРРР-ММ-ДД')
+  })
+})
+
 describe('word', () => {
+  it('порожній контекст стає undefined', () => {
+    const word = WordInputSchema.parse({ usedWord: 'чашка', correctWord: 'чайник', context: '' })
+
+    expect(word.context).toBeUndefined()
+  })
+
   it('вимагає обидва слова', () => {
     expect(WordInputSchema.safeParse({ usedWord: 'чашка', correctWord: 'чайник' }).success).toBe(
       true,

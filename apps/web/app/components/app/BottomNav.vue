@@ -48,7 +48,7 @@ const links = [
 }
 
 .bottom-nav__link[aria-current='page'] {
-  color: var(--color-primary);
-  box-shadow: inset 0 4px 0 var(--color-primary);
+  color: var(--color-link);
+  box-shadow: inset 0 4px 0 var(--color-link);
 }
 </style>

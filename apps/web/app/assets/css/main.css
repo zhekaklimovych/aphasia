@@ -11,6 +11,9 @@
   --color-skip: #4b5563;
   --color-on-accent: #ffffff;
   --color-focus: #7c3aed;
+  /* Колір тексту посилань і помилок окремо від фонів кнопок: у темній темі світліший */
+  --color-link: #1d4ed8;
+  --color-error-text: #b91c1c;
 
   --radius: 12px;
   --space-1: 0.5rem;
@@ -31,6 +34,8 @@
     --color-border: #3f3f46;
     --color-primary: #2563eb;
     --color-focus: #c4b5fd;
+    --color-link: #93c5fd;
+    --color-error-text: #fca5a5;
   }
 }
 
@@ -70,7 +75,7 @@ input {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-link);
 }
 
 /* Вертикальний стек блоків сторінки */
@@ -113,23 +118,13 @@ a {
 }
 
 .field__input[aria-invalid='true'] {
-  border-color: var(--color-no);
+  border-color: var(--color-error-text);
 }
 
 .field__error {
   margin: 0;
-  color: var(--color-no);
+  color: var(--color-error-text);
   font-weight: 600;
-}
-
-@media (prefers-color-scheme: dark) {
-  .field__error {
-    color: #fca5a5;
-  }
-
-  .field__input[aria-invalid='true'] {
-    border-color: #fca5a5;
-  }
 }
 
 /* Базова велика кнопка */
