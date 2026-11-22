@@ -196,11 +196,11 @@ model DialogMessage {
 | `ResultCard.vue`    | Інтерпретація, впевненість, кнопки підтвердження | `computed`, слоти |
 | `ProgressBar.vue`   | Номер питання з N                                | `computed`        |
 
-- [ ] Файл `mocks/questions.ts` з 6–8 питаннями і готовим результатом.
-- [ ] Composable `useDialog()` зі станами `idle → asking → result → done`, функціями `start(text)`, `answer(value)`, `reset()`.
-- [ ] Сторінка `pages/index.vue` збирає всі компоненти.
-- [ ] Великі кнопки, контрастні кольори, клавіші `Y` / `N` для відповіді (доступність важлива для цільових користувачів).
-- [ ] Перші тести Vitest для `useDialog()`: старт, відповідь, перехід до результату, скидання.
+- [x] Файл `mocks/questions.ts` з 6–8 питаннями і готовим результатом.
+- [x] Composable `useDialog()` зі станами `idle → asking → result → done`, функціями `start(text)`, `answer(value)`, `reset()`.
+- [x] Сторінка `pages/index.vue` збирає всі компоненти.
+- [x] Великі кнопки, контрастні кольори, клавіші `Y` / `N` для відповіді (доступність важлива для цільових користувачів).
+- [x] Перші тести Vitest для `useDialog()`: старт, відповідь, перехід до результату, скидання.
 
 **Готово, коли:** можна пройти діалог від вводу до результату на моках, тести `useDialog()` проходять.
 
@@ -208,12 +208,12 @@ model DialogMessage {
 
 **Вивчаєте:** file-based routing, layouts, middleware, Pinia, Zod для форм.
 
-- [ ] Сторінки: `/login`, `/register`, `/` (новий діалог), `/dialog/[id]`, `/history`, `/profile`, `/words`.
-- [ ] `layouts/default.vue` з нижньою навігацією, `layouts/auth.vue` для логіну.
-- [ ] Store `stores/dialog.ts`: перенести стан з `useDialog()` у Pinia, щоб діалог не губився при переході між сторінками.
-- [ ] Store `stores/auth.ts` з мок-логіном, `middleware/auth.ts` закриває сторінки для гостей.
-- [ ] Форми профілю і словника з валідацією через Zod (схеми в `packages/shared`).
-- [ ] Сторінка `/words` з TanStack Table на мок-даних: сортування і пошук.
+- [x] Сторінки: `/login`, `/register`, `/` (новий діалог), `/dialog/[id]`, `/history`, `/profile`, `/words`.
+- [x] `layouts/default.vue` з нижньою навігацією, `layouts/auth.vue` для логіну.
+- [x] Store `stores/dialog.ts`: перенести стан з `useDialog()` у Pinia, щоб діалог не губився при переході між сторінками.
+- [x] Store `stores/auth.ts` з мок-логіном, `middleware/auth.ts` закриває сторінки для гостей.
+- [x] Форми профілю і словника з валідацією через Zod (схеми в `packages/shared`).
+- [x] Сторінка `/words` з TanStack Table на мок-даних: сортування і пошук.
 
 **Готово, коли:** усі сторінки відкриваються, без "логіну" перекидає на `/login`, діалог зберігається при навігації.
 
