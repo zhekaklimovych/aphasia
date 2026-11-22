@@ -208,12 +208,12 @@ model DialogMessage {
 
 **Вивчаєте:** file-based routing, layouts, middleware, Pinia, Zod для форм.
 
-- [ ] Сторінки: `/login`, `/register`, `/` (новий діалог), `/dialog/[id]`, `/history`, `/profile`, `/words`.
-- [ ] `layouts/default.vue` з нижньою навігацією, `layouts/auth.vue` для логіну.
-- [ ] Store `stores/dialog.ts`: перенести стан з `useDialog()` у Pinia, щоб діалог не губився при переході між сторінками.
-- [ ] Store `stores/auth.ts` з мок-логіном, `middleware/auth.ts` закриває сторінки для гостей.
-- [ ] Форми профілю і словника з валідацією через Zod (схеми в `packages/shared`).
-- [ ] Сторінка `/words` з TanStack Table на мок-даних: сортування і пошук.
+- [x] Сторінки: `/login`, `/register`, `/` (новий діалог), `/dialog/[id]`, `/history`, `/profile`, `/words`.
+- [x] `layouts/default.vue` з нижньою навігацією, `layouts/auth.vue` для логіну.
+- [x] Store `stores/dialog.ts`: перенести стан з `useDialog()` у Pinia, щоб діалог не губився при переході між сторінками.
+- [x] Store `stores/auth.ts` з мок-логіном, `middleware/auth.ts` закриває сторінки для гостей.
+- [x] Форми профілю і словника з валідацією через Zod (схеми в `packages/shared`).
+- [x] Сторінка `/words` з TanStack Table на мок-даних: сортування і пошук.
 
 **Готово, коли:** усі сторінки відкриваються, без "логіну" перекидає на `/login`, діалог зберігається при навігації.
 
