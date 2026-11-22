@@ -43,7 +43,7 @@ apps/web/              # Nuxt 4, пакет @aphasia/web
     components/dialog/ # InputForm, QuestionCard, AnswerButtons, DialogHistory, ResultCard, ProgressBar
     composables/       # useHotkeys та інші
     stores/            # dialog.ts (стан активного діалогу), auth.ts
-    middleware/        # auth.ts
+    middleware/        # auth.global.ts (закриває все, крім сторінок з `public: true`)
   public/              # статичні файли
   nuxt.config.ts
 apps/api/              # Nest.js
